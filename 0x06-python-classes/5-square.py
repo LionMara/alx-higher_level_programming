@@ -7,6 +7,10 @@ The class has a property and a property setter
 
 
 class Square:
+    """
+    class Square has a proprty and a setter
+    it also contains public instance method area and my_print
+    """
     def __init__(self, size=0):
         self.size = size
 
