@@ -1,7 +1,11 @@
 #!/usr/bin/python3
 
 import dis
+"""dis: dissassembly of python code"""
+
 import math
+"""math: math modules for pi"""
+
 
 """
 class MagicClass computes area and circumfrerence
