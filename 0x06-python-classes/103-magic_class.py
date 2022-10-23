@@ -3,8 +3,17 @@
 import dis
 import math
 
+"""
+class MagicClass computes area and circumfrerence
+of a given radius.
+public class: area
+public class: circumference
+"""
+
 
 class MagicClass:
+    """computes area and circumference"""
+
     def __init__(self, radius=0):
         self.__radius = 0
 
