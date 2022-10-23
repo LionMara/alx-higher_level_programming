@@ -14,10 +14,12 @@ private instance: next_node
 
 """
 
+
 class Node:
     """
     class Node  will have only two private instances
     """
+
     def __init__(self, data, next_node=None):
         self.__data = data
         self.__next_node = next_node
@@ -42,6 +44,7 @@ class Node:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
+
 """
 class SinglyLinkedList defines a singly linked list
 private instance: head
@@ -53,20 +56,22 @@ public instance method: sorted_insert
 
 """
 
+
 class SinglyLinkedList:
+    """Singly linked list """
+
     def __init__(self):
         self.__head = None
 
     def __repr__(self):
         temp = self.__head
-        total= ""
+        total = ""
         while temp:
             total += "{:d}".format(temp.data)
             temp = temp.next_node
             if temp:
                 total += "\n"
         return total
-
 
     def sorted_insert(self, value):
         if self.__head is None:
