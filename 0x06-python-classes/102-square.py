@@ -7,7 +7,11 @@ Private instance: size
 init instantiation
 Public method: area
 """
+
+
 class Square:
+    """Class square"""
+
     def __init__(self, size=0):
         self.__size = size
 
