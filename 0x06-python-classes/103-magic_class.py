@@ -1,10 +1,11 @@
 #!/usr/bin/python3
+"""
+dis: dissassembly of python code
+math: math module
 
+"""
 import dis
-"""dis: dissassembly of python code"""
-
 import math
-"""math: math modules for pi"""
 
 
 """
