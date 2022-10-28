@@ -7,6 +7,7 @@ It is important to know the attributes
 we're working with
 """
 
+
 def lookup(obj):
 
     return dir(obj)
