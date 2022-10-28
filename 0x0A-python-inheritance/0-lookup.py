@@ -9,5 +9,6 @@ we're working with
 
 
 def lookup(obj):
+    """Lookup looks for all attributes"""
 
     return dir(obj)
