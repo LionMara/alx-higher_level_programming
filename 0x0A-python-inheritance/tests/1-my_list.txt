@@ -33,7 +33,8 @@ passing in an empty list
 ========================
 	>>> empty_list = MyList()
 	>>> print(empty_list)
-	>>> []
+	[]
+
 	>>> empty_list.append(-1)
 	>>> empty_list.append(2)
 	>>> empty_list.append(1)
