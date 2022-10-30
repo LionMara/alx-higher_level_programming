@@ -28,3 +28,16 @@ using our class methods
 	[1, 2, 3, 4, 5]
 	>>> print(my_list)
 	[1, 4, 2, 3, 5]
+
+passing in an empty list
+========================
+	>>> empty_list = MyList()
+	>>> print(empty_list)
+	>>> []
+	>>> empty_list.append(-1)
+	>>> empty_list.append(2)
+	>>> empty_list.append(1)
+	>>> print(empty_list)
+	[-1, 2, 1]
+	>>> empty_list.print_sorted()
+	[-1, 1, 2]
