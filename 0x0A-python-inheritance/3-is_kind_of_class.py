@@ -9,6 +9,7 @@ a_class: class
 
 """
 
+
 def is_kind_of_class(obj, a_class):
     """ checks for instance and class """
 
