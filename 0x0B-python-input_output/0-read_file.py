@@ -10,5 +10,5 @@ filename: filename to be read
 def read_file(filename=""):
     """ a function that prints to stdout"""
 
-    with open(filename, encoding="utf-8") as filename:
-        print(filename.read())
+    with open(filename, mode="r", encoding="utf-8") as filename:
+        print(filename.read(), end='')
