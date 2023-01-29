@@ -6,6 +6,7 @@ a bunch of stuff
 
 '''
 
+
 class Base():
     ''' This is the base of the project
         all the functions will stay here
