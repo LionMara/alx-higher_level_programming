@@ -135,3 +135,66 @@ class TestRectangleMethods(unittest.TestCase):
 
         with assertRaises(ValueError):
             rect = Rectangle(5, 3, 5, -2)
+
+    def test_area(self):
+        '''Test for the area method '''
+
+        rect = Rectangle(3, 2)
+        self.assertEqual(rect.area(), 6)
+
+    def test_area_new_values(self):
+        '''Test for the area method with updated width and height'''
+
+        rect = Rectangle(3, 2)
+        self.assertEqual(rect.area(), 6)
+
+        rect.width = 5
+        self.assertEqual(rect.area(), 10)
+
+        rect.height = 6
+        self.assertEqual(rect.area(), 30)
+
+    def test_area_more(self):
+        rect = Rectangle(5, 9)
+        self.assertEqual(rect.area(), 45)
+
+        rect = Rectangle(10, 4)
+        self.assertEqual(rect.area(), 40)
+
+
+    def test_display(self):
+        '''Test for '#' displayed'''
+
+        r1 = Rectangle(2, 2)
+        res = "##\n##"
+
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            r1.display()
+            self.assertEqual(str_out.getvalue(), res)
+
+    def test_display_more(self):
+        '''Test for '#' displayed'''
+
+        r1 = Rectangle(2, 3)
+        res = "##\n##\n##"
+
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            r1.display()
+            self.assertEqual(str_out.getvalue(), res)
+
+    def test_display(self):
+        '''Test for '#' displayed with a new value added'''
+
+        r1 = Rectangle(2, 2)
+        res = "##\n##"
+
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            r1.display()
+            self.assertEqual(str_out.getvalue(), res)
+
+        r1.width = 3
+        res = "###\n###"
+        
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            r1.display()
+            self.assertEqual(str_out.getvalue(), res)
