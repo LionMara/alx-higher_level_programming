@@ -32,7 +32,7 @@ class TestBaseMethods(unittest.TestCase):
         b1 = Base()
         b2 = Base()
         b3 = Base()
-        self.assertEqual(b1.id, b3.id -2)
+        self.assertEqual(b1.id, b3.id - 2)
 
     def test_arg_is_none(self):
         b1 = Base(None)
@@ -44,10 +44,10 @@ class TestBaseMethods(unittest.TestCase):
         self.assertEqual(b1.id, 12)
 
     def test_nb_instances_after_id(self):
-        b1 = Base()
-        b2 = Base(12)
-        b3 = Base()
-        self.assertEqual(b3.id, 2)
+        base1 = Base()
+        base2 = Base(12)
+        base3 = Base()
+        self.assertEqual(base1.id, base3.id - 1)
 
     def test_nb_instances_private(self):
         with self.assertRaises(AttributeError):
@@ -60,7 +60,7 @@ class TestBaseMethods(unittest.TestCase):
         self.assertEqual(5.5, Base(5.5).id)
 
     def test_id_complex(self):
-        self.assertEqual(complex(8), Base(complex(5)).id)
+        self.assertEqual(complex(8), Base(complex(8)).id)
 
     def test_id_is_dict(self):
         self.assertEqual({'a':'A', 'b':'B'}, Base({'a':'A', 'b':'B'}).id)
@@ -74,17 +74,16 @@ class TestBaseMethods(unittest.TestCase):
 
 
     def test_id_is_tuple(self):
-        self.assertEqual((1,), Base((1,).id))
+        self.assertEqual((1,2), Base((1,2)).id)
 
     def test_id_is_set(self):
         self.assertEqual({1,2,3,4}, Base({1,2,3,4}).id)
 
     def test_frozen_set(self):
-        self.assertEqual(frozenset({1, 2, 3}, Base(frozenset({1,2,3})).id))
+        self.assertEqual(frozenset({1, 2, 3}), Base(frozenset({1,2,3})).id)
 
     def test_id_is_range(self):
-        self.assertEqual(range(4), Base(range(5)).id)
+        self.assertEqual(range(4), Base(range(4)).id)
 
     def test_id_is_bytes(self):
         self.assertEqual(b'clinton', Base(b'clinton').id)
-
