@@ -8,7 +8,7 @@ a given divisor
 
 def matrix_divided(matrix, div):
     for i in range(0, len(matrix)-1):
-        for j in range(len(matrix[i])):
+        for j in range(0, len(matrix[i]-1)):
             if type(j) not in [float, int] or len(matrix[i]) < 2:
                 raise TypeError("matrix must be a matrix\
                 (list of lists) of integers/floats")

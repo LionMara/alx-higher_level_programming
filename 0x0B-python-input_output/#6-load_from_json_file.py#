@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+
+""" json module: JavaScript Object Notation """
+
+import json
+
+"""
+load_from_json: loads json to py string
+filename: file with json text
+
+"""
+
+
+def load_from_json_file(filename):
+    """ loads json to python """
+
+    
