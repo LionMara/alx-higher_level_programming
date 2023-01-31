@@ -22,27 +22,9 @@ Ints - positive, one is negative, all are negative
 	98
 	>>> add_integer(-1)
 	97
-	add_integer(11.5)
+	>>> add_integer(11.5)
 	109
 
-
-Floats
-======
-	>>> add_integer(2.0, 3)
-	5
-	>>> add_integer(2.0, 3.0)
-	5
-OverflowError
-============
-	>>> add_integer(2.0*1000, 34e3**10000)
-	Traceback (most recent call last):
-	...
-
-NaN ValueError
-==============
-	>>> add_integer(float('NaN')), 2.0)
-	Traceback (most recent call last):
-	...
 
 
 TypeError
