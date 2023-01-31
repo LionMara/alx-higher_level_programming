@@ -75,3 +75,12 @@ class Rectangle(Base):
         if (value < 0):
             raise ValueError("y must be >= 0")
         self.__y = value
+
+    def display(self):
+        ''' outputs '#' of the rectangle '''
+
+        w = self.width
+        h = self.height
+
+        for i in range(h):
+            print('#'*w)
