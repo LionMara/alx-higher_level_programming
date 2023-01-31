@@ -25,6 +25,13 @@ Ints - positive, one is negative, all are negative
 	>>> add_integer(11.5)
 	109
 
+Overflow
+----------
+	>>> add_integer(245e125 * 3456**456)
+	Traceback (most recent call last):
+	...
+	OverflowError: int too large to convert to float
+
 
 
 TypeError
