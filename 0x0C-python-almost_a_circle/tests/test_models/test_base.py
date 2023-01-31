@@ -8,6 +8,20 @@ from unittest.mock import patch
 
 
 class TestBaseMethods(unittest.TestCase):
+    def test_automatic_base(self):
+        '''Anytime base is called'''
+
+        Base._Base__nb_objects = 0
+    def test_id_provided(self):
+        '''Test for id provided'''
+        b1 = Base(12)
+        self.assertEqual(b1.id, 12)
+
+    def test_id_not_given(self):
+        '''Test when id is not provided'''
+        b1 = Base()
+        self.assertEqual(b1.id, 1)
+
     def test_no_arg(self):
         b1 = Base()
         b2 = Base()
