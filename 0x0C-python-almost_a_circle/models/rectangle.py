@@ -21,6 +21,10 @@ class Rectangle(Base):
         self.y = y
         super().__init__(id)
 
+    def __str__(self):
+        return '[Rectangle] ({}) {}/{} - {}/{}'.format(
+            self.id, self.x, self.y,self.width, self.height)
+
     @property
     def width(self):
         '''getter for width'''
@@ -86,6 +90,12 @@ class Rectangle(Base):
 
         w = self.width
         h = self.height
+        x = self.x
+        y = self.y
+
+        for i in range(y):
+            print('')
 
         for i in range(h):
+            print(' '*x, end='')
             print('#'*w)
