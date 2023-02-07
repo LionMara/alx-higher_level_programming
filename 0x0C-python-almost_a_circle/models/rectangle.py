@@ -14,7 +14,6 @@ class Rectangle(Base):
         if (type(height) != int):
             raise TypeError("height must be an integer")
         '''
-        #super().__init__(id)
         self.width = width
         self.height = height
         self.x = x
@@ -23,7 +22,7 @@ class Rectangle(Base):
 
     def __str__(self):
         return '[Rectangle] ({}) {}/{} - {}/{}'.format(
-            self.id, self.x, self.y,self.width, self.height)
+            self.id, self.x, self.y, self.width, self.height)
 
     @property
     def width(self):
