@@ -28,8 +28,8 @@ class Square(Rectangle):
 
         if (type(size) != int):
             raise TypeError("width must be an integer")
-        if (size <= 0):
-            raise ValueError("width must b > 0")
+        '''if (size <= 0):
+            raise ValueError("width must b > 0")'''
 
         self.width = size
         self.height = size
