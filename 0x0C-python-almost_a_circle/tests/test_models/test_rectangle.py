@@ -12,7 +12,7 @@ from models.base import Base
 class TestRectangleMethods(unittest.TestCase):
     """All tests for everything in the Rectangle class"""
 
-    def default_nb_objects(self):
+    def setUp(self):
         """all instances are set to 0"""
         Base._Base__nb_objects = 0
 
@@ -214,4 +214,93 @@ class TestRectangleMethods(unittest.TestCase):
 
         with patch('sys.stdout', new=StringIO()) as str_out:
             r1.display()
+            self.assertEqual(str_out.getvalue(), res)
+
+    def test_str(self):
+        '''tests for the __str__ method'''
+
+        rect = Rectangle(2, 5, 2, 4)
+        res = "[Rectangle] (1) 2/4 - 2/5\n"
+
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            print(rect)
+            self.assertEqual(str_out.getvalue(), res)
+
+    def test_str_2(self):
+        '''tests for the __str__ method all values'''
+
+        rect = Rectangle(4, 6, 2, 1, 12)
+        res = "[Rectangle] (12) 2/1 - 4/6\n"
+
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            print(rect)
+            self.assertEqual(str_out.getvalue(), res)
+
+        rect.id = 1
+        rect.width = 7
+        rect.height = 15
+        res = "[Rectangle] (1) 2/1 - 7/15\n"
+
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            print(rect)
+            self.assertEqual(str_out.getvalue(), res)
+
+    def test_str_three(self):
+        '''str method with more changes '''
+
+        rect = Rectangle(5, 10)
+        res = "[Rectangle] (1) 0/0 - 5/10\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            print(rect)
+            self.assertEqual(str_out.getvalue(), res)
+
+        rect1 = Rectangle(34, 56, 12, 8)
+        res1 = "[Rectangle] (2) 12/8 - 34/56\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            print(rect1)
+            self.assertEqual(str_out.getvalue(), res1)
+
+        rect2 = Rectangle(1, 1, 1, 1)
+        res2 = "[Rectangle] (3) 1/1 - 1/1\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            print(rect2)
+            self.assertEqual(str_out.getvalue(), res2)
+
+    def test_str_four(self):
+        '''more tests on the string method'''
+
+        rct = Rectangle(3, 3)
+
+        res = "[Rectangle] (1) 0/0 - 3/3"
+        self.assertEqual(rct.__str__(), res)
+
+    def test_display_axis(self):
+        '''Rectangle modified to have x and y effect'''
+
+        rect = Rectangle(5, 4, 1, 1)
+        res = "\n #####\n #####\n #####\n #####\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            rect.display()
+            self.assertEqual(str_out.getvalue(), res)
+
+    def test_display_change_axis(self):
+        '''valus of x and y are changed'''
+
+        rect = Rectangle(3, 2)
+        res = "###\n###\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            rect.display()
+            self.assertEqual(str_out.getvalue(), res)
+
+        rect.x = 2
+        res = "  ###\n  ###\n"
+
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            rect.display()
+            self.assertEqual(str_out.getvalue(), res)
+
+        rect.y = 2
+        res = "\n\n  ###\n  ###\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            rect.display()
             self.assertEqual(str_out.getvalue(), res)
