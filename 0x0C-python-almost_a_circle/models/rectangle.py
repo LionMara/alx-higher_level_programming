@@ -135,3 +135,13 @@ class Rectangle(Base):
                     self.x = v
                 elif k == "y":
                     self.y = v
+
+    def to_dictionary(self):
+        ''' returns dictionary represenation of Rectangle'''
+
+        rect_keys = ['x', 'y', 'id', 'height', 'width']
+        rect_values = [self.x, self.y, self.id, self.height, self.width]
+
+        rect_dict = dict(zip(rect_keys, rect_values))
+
+        return rect_dict
