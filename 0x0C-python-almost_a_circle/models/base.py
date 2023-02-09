@@ -42,6 +42,10 @@ class Base():
             elif obj.__class__.__name__ == 'Square':
                 filename = 'Square.json'
 
+        if list_objs is None:
+            with open(filename, "w") as fp:
+                fp.write([])
+
         obj_list = []
         with open(filename, "w") as fp:
             for obj in list_objs:
