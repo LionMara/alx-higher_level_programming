@@ -40,7 +40,7 @@ class Base():
             if obj.__class__.__name__ == 'Rectangle':
                 filename = 'Rectangle.json'
             elif obj.__class__.__name__ == 'Square':
-                filename = 'Rectangle.json'
+                filename = 'Square.json'
 
         obj_list = []
         with open(filename, "w") as fp:
