@@ -66,3 +66,13 @@ class Square(Rectangle):
                     self.x = v
                 elif k == "y":
                     self.y = v
+
+    def to_dictionary(self):
+        ''' it turns the attributes to dictionary '''
+
+        square_keys = ['id', 'size', 'x', 'y']
+        square_values = [self.id, self.width, self.x, self.y]
+
+        square_dict = dict(zip(square_keys, square_values))
+
+        return square_dict

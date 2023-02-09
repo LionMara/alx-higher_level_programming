@@ -304,3 +304,57 @@ class TestRectangleMethods(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as str_out:
             rect.display()
             self.assertEqual(str_out.getvalue(), res)
+
+    def test_dictionary(self):
+        '''Testing the dictionary method'''
+
+        rect = Rectangle(1, 2,3, 4, 1)
+        res = "[Rectangle] (1) 3/4 - 1/2\n"
+
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            print(rect)
+            self.assertEqual(str_out.getvalue(), res)
+
+        self.assertEqual(rect.width, 1)
+        self.assertEqual(rect.height, 2)
+        self.assertEqual(rect.x, 3)
+        self.assertEqual(rect.y, 4)
+        self.assertEqual(rect.id, 1)
+
+        rect_dict = rect.to_dictionary()
+
+        result = "<class 'dict'>\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            print(type(rect_dict))
+            self.assertEqual(str_out.getvalue(), result)
+
+    def test_dictionary_more(self):
+        '''Testing the dictionary method'''
+
+        rect = Rectangle(2, 2, 2, 2)
+        res = "[Rectangle] (1) 2/2 - 2/2\n"
+
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            print(rect)
+            self.assertEqual(str_out.getvalue(), res)
+
+        rect1 = Rectangle(5, 7)
+        res1 = "[Rectangle] (2) 0/0 - 5/7\n"
+
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            print(rect1)
+            self.assertEqual(str_out.getvalue(), res1)
+
+        rect_dict = rect.to_dictionary()
+        rect1.update(**rect_dict)
+
+        self.assertEqual(rect.width, rect1.width)
+        self.assertEqual(rect.height, rect1.height)
+        self.assertEqual(rect.x, rect1.x)
+        self.assertEqual(rect.y, rect1.y)
+        self.assertEqual(rect.id, rect1.id)
+
+        result = "<class 'dict'>\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            print(type(rect_dict))
+            self.assertEqual(str_out.getvalue(), result)
