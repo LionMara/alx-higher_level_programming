@@ -44,13 +44,15 @@ class Base():
 
         if list_objs is None:
             with open(filename, "w") as fp:
-                fp.write([])
+                empty_list = []
+                empty_list_json = Base.to_json_string(empty_list)
+                fp.write(empty_list_json)
+        else:
+            obj_list = []
+            with open(filename, "w") as fp:
+                for obj in list_objs:
 
-        obj_list = []
-        with open(filename, "w") as fp:
-            for obj in list_objs:
-                obj_string = obj.to_dictionary()
-                obj_list.append(obj_string)
-            list_dict = Base.to_json_string(obj_list)
-
-            fp.write(list_dict)
+                    obj_string = obj.to_dictionary()
+                    obj_list.append(obj_string)
+                list_dict = Base.to_json_string(obj_list)
+                fp.write(list_dict)
