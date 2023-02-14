@@ -1,3 +1,2 @@
--- this is the coomand to show all MySQL DATABASES
--- SHOW DATABASES is synonimous to SHOW SCHEMAS, enjoy
+-- task 0 - list all databases
 SHOW DATABASES;
