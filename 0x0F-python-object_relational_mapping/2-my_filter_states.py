@@ -26,10 +26,11 @@ def main(args):
     cur = db_connection.cursor()
 
     # SQL query to match passed in state argument
-    query = "SELECT * FROM states WHERE BINARY name = %s"
+    query = "SELECT * FROM states WHERE BINARY name = '{}'"
 
+    formatted_query = query.format(state_name_to_match)
     # execute the qquery
-    cur.execute(query, (state_name_to_match,))
+    cur.execute(formatted_query)
 
     # loop over the results todisplay
     for row in cur.fetchall():
