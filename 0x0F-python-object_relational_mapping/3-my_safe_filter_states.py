@@ -28,10 +28,11 @@ def main(args):
 
     # split the string_with_state possibly to avoid an injection
     split_list = string_with_state.split(';')
+    stripped_state = split_list[0].strip("'")
 
     # query to be used
     qu = "SELECT * FROM states WHERE BINARY name = '{}' ORDER BY states.id ASC"
-    formatted_query = qu.format(split_list[0])
+    formatted_query = qu.format(stripped_state)
 
     cur.execute(formatted_query)
 
