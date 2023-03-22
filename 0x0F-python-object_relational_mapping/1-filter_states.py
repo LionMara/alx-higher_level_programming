@@ -27,7 +27,7 @@ def main(args):
     cur = db.cursor()
 
     # SQL query to get all states sorted in ascending order
-    query = "SELECT * FROM states WHERE name LIKE 'N%'"
+    query = "SELECT * FROM states WHERE BINARY name LIKE 'N%'"
 
     # above query is executed
     cur.execute(query)
