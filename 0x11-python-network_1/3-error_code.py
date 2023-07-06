@@ -6,7 +6,7 @@
 """
 
 from urllib import request, error
-from sys import argv
+import sys
 
 
 if __name__ == "__main__":
