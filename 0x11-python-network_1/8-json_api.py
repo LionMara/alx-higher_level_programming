@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-"""8-json_api.py"""
+"""
+  8-json_api.py
+  script that takes in a letter
+  sends a POST request to http://0.0.0.0:5000/search_user
+"""
 
 import sys
 import requests
