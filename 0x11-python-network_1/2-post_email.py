@@ -1,14 +1,15 @@
 #!/usr/bin/python3
-""" 2-post_email.py"""
+"""2-post_email.py"""
 
-from urllib import request, parse
 import sys
-
-url = sys.argv[1]
-email = sys.argv[2]
+import urllib.parse
+import urllib.request
 
 if __name__ == "__main__":
-    params = urllib.parse.urlencode({'email': email}).encode('utf-8')
-    with urllib.request.urlopen(url, data=params) as response:
-        body = response.read().decode('utf-8')
-        print(body)
+    url = sys.argv[1]
+    value = {"email": sys.argv[2]}
+    data = urllib.parse.urlencode(value).encode("ascii")
+
+    req = urllib.request.Request(url, data)
+    with urllib.request.urlopen(req) as response:
+        print(response.read().decode("utf-8"))

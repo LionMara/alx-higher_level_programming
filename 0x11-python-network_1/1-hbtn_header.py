@@ -1,17 +1,13 @@
 #!/usr/bin/python3
-"""
-- script that takes in a URL
-- sends a request to the URL
-- displays the value of the X-Request-Id variable
-"""
+""" 1-hbtn_header.py """
 
-import urllib.request
 import sys
+import urllib.request
 
 if __name__ == "__main__":
-    """ prevents module from running if not called directly """
     url = sys.argv[1]
-    with urllib.request.urlopen(url) as response:
-        headers = response.headers
 
-print(headers['X-Request-Id'])
+    """ regulates opening of files """
+    req = urllib.request.Request(url)
+    with urllib.request.urlopen(req) as response:
+        print(dict(response.headers).get("X-Request-Id"))
