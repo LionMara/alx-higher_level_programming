@@ -1,11 +1,13 @@
 #!/usr/bin/python3
-"""script takes in URL displays value of the X-Request-Id variable"""
+""" 1-hbtn_header.py """
 
-import urllib.request
 import sys
+import urllib.request
 
-url = sys.argv[1]
-with urllib.request.urlopen(url) as response:
-    headers = response.headers
+if __name__ == "__main__":
+    url = sys.argv[1]
 
-print(headers['X-Request-Id'])
+    """ regulates opening of files """
+    req = urllib.request.Request(url)
+    with urllib.request.urlopen(req) as response:
+        print(dict(response.headers).get("X-Request-Id"))
